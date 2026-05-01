@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026-1-Book-Trailer-Tuesday</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #f2f2f2;
+      --mid-gray: #8f8f8f;
+      --line: #1f1f1f;
+      --max-width: 1600px;
+      --gap: 20px;
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    body {
+      font-family: "Arial Narrow", "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-stretch: condensed;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    .page-title {
+      margin: 0 0 26px;
+      font-size: clamp(2rem, 3vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--gap);
+    }
+
+    .card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .thumb-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 2; /* 1080 x 720 ratio */
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #111;
+      border: 1px solid var(--line);
+    }
+
+    .thumb-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.28s ease, opacity 0.28s ease;
+    }
+
+    .card:hover .thumb-frame img,
+    .card:focus-visible .thumb-frame img {
+      transform: scale(1.02);
+      opacity: 0.95;
+    }
+
+    .meta {
+      margin-top: 8px;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 8pt;
+      line-height: 1.45;
+      color: var(--mid-gray);
+      display: flex;
+      gap: 0.45em;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .student {
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .book {
+      font-weight: 400;
+      word-break: keep-all;
+    }
+
+    footer {
+      margin-top: 42px;
+      padding-top: 18px;
+      text-align: center;
+      color: var(--mid-gray);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(calc(100% - 24px), var(--max-width));
+        padding-top: 20px;
+      }
+      .grid {
+        gap: 16px;
+      }
+      .meta {
+        font-size: 8pt;
+      }
+      footer {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1 class="page-title">2026-1-Book-Trailer-Tuesday</h1>
+    <main>
+      <section class="grid" id="gallery" aria-label="Book trailer thumbnails"></section>
+    </main>
+    <footer>2026 HKNU Design | Media Design | Book Trailer</footer>
+  </div>
+
+  <script>
+    const items = [
+      ["강다영", "노르웨이의 숲", "https://youtu.be/YUUf_G_49zI"],
+      ["구도윤", "구운몽", "https://youtu.be/tT_LbrjVpmY"],
+      ["마도아", "첫사랑의 침공", "https://www.youtube.com/watch?v=DkGr4rZob6w"],
+      ["정세윤", "개구리가 되고 싶어", "https://youtu.be/aRInmAUcmqs"],
+      ["김보민", "동트기 힘든 긴 밤", "https://youtu.be/TsKTx6gC26Y"],
+      ["이승은25", "소년이 온다", "https://youtu.be/4xvoqGBxgtc?si=DAT_R3CYzt6tVWa6"],
+      ["임가영", "넛지", "https://youtu.be/y1tDD3Z3yzU?si=Zgq6BdpN1-bAaiHW"],
+      ["임수현", "구의 증명", "https://youtu.be/AXfUHafGI4w?si=BJYe4mU__V6d3Qgd"],
+      ["조은서", "꿰맨 눈의 마을", "https://youtu.be/2_ZXlOFGO7c"],
+      ["김주호", "악의 꽃", "https://youtu.be/AH9HST9R_8M"],
+      ["김지민", "어린왕자", "https://youtu.be/VbS9SXxqpCs"],
+      ["박수정", "동물농장", "https://youtu.be/RSMy5dOChQI"],
+      ["윤수정", "종의 기원", "https://youtu.be/W4uPynR9HcE"],
+      ["허윤선", "카지노", "https://youtu.be/psX4RROxdsY"],
+      ["김주하", "살인자의 기억법", "https://youtu.be/dWn0ReO_PUg"],
+      ["박예빈", "아나하라트", "https://youtu.be/svKSvrWr4YE?si=98Lydry7HrwbDyWv"],
+      ["윤은비", "이방인", "https://youtu.be/XrCRdCIbIxk"],
+      ["정은희", "달러구트 꿈 백화점", "https://youtu.be/x0ezQ5RvKz4"],
+      ["최원준", "채식주의자", "https://youtu.be/S2DuGXNA9oQ?si=t8sEgXNAO3SNiS0m"],
+      ["김민영", "파과", "https://youtu.be/9bAWoH1kycU"],
+      ["송아림", "미드나잇 라이브러리", "https://youtu.be/fDpiOQqe_TU?si=YBjBvoVDTW_bHJhc"],
+      ["정승희", "스노볼 드라이브", "https://youtu.be/8CnaIR8kJaM"],
+      ["차송주", "나무", "https://youtu.be/ZeutX7yvx1M"],
+      ["황예린", "연금술사(파울로 쿄엘로)", "https://youtu.be/Y-rEnjx6YJc"]
+    ];
+
+    function getYouTubeId(url) {
+      try {
+        const u = new URL(url);
+        if (u.hostname.includes('youtu.be')) {
+          return u.pathname.replace('/', '');
+        }
+        if (u.searchParams.get('v')) {
+          return u.searchParams.get('v');
+        }
+      } catch (e) {
+        console.error('Invalid URL:', url);
+      }
+      return '';
+    }
+
+    function createCard([student, book, url], index) {
+      const id = getYouTubeId(url);
+      const card = document.createElement('a');
+      card.className = 'card';
+      card.href = url;
+      card.target = '_blank';
+      card.rel = 'noopener noreferrer';
+      card.setAttribute('aria-label', `${student} ${book} 유튜브 영상 열기`);
+
+      const thumbMax = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+      const thumbHq = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+
+      card.innerHTML = `
+        <div class="thumb-frame">
+          <img
+            src="${thumbMax}"
+            alt="${book} 유튜브 썸네일"
+            loading="lazy"
+            onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1'; this.src='${thumbHq}';}"
+          />
+        </div>
+        <div class="meta">
+          <span class="student">${index + 1}. ${student}</span>
+          <span class="book">${book}</span>
+        </div>
+      `;
+      return card;
+    }
+
+    const gallery = document.getElementById('gallery');
+    items.forEach((item, index) => gallery.appendChild(createCard(item, index)));
+  </script>
+</body>
+</html>

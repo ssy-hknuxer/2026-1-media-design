@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 Booktrailer 1st Edit Mon</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #000;
+      color: #777;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 36px 28px 48px;
+    }
+
+    h1 {
+      margin: 0 0 28px;
+      font-size: 24pt;
+      line-height: 1.2;
+      font-weight: 700;
+      color: #777;
+      letter-spacing: -0.02em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 28px 20px;
+    }
+
+    .item {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #111;
+      border: 1px solid #1a1a1a;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      color: #555;
+      font-size: 13px;
+      line-height: 1.4;
+      background: #111;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 12pt;
+      line-height: 1.45;
+      font-weight: 400;
+      color: #777;
+      word-break: keep-all;
+    }
+
+    .student {
+      font-weight: 700;
+    }
+
+    .book {
+      font-weight: 400;
+    }
+
+    footer {
+      margin-top: 48px;
+      font-size: 10pt;
+      color: #555;
+      letter-spacing: 0.01em;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 28px 18px 40px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .caption {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>2026 Booktrailer 1st Edit Mon</h1>
+    <section class="grid" id="grid"></section>
+    <footer>2026 HKNU Design | Media Design | Book Trailer</footer>
+  </main>
+
+  <script>
+    const items = [
+      { student: "박희진", book: "1984 (조지 오웰)", url: "https://www.youtube.com/watch?v=VO5gLLqqCJc" },
+      { student: "이리나", book: "노인과 바다", url: "https://youtu.be/UwVFAqdEQrg" },
+      { student: "정기호", book: "이기적 유전자", url: "https://www.youtube.com/watch?v=zABboQOSoPU" },
+      { student: "최현지", book: "우리가 빛의 속도로 갈 수 없다면", url: "https://youtu.be/DeGrAu1qpQo" },
+      { student: "홍지민", book: "미드나잇 라이브러리", url: "https://youtu.be/BncSjVJIxgU" },
+      { student: "강서연", book: "좀비 해방의 괴물", url: "https://docs.google.com/presentation/d/1xAfwVQY43xX-G8Fb9o8koJZxwCNNumvoVJNpEDMPNcs/edit?slide=id.g3de66d020d2_0_84#slide=id.g3de66d020d2_0_84" },
+      { student: "방준혁", book: "백야행", url: "https://www.youtube.com/watch?v=pPDsKKmjYJU" },
+      { student: "신아영", book: "지구 끝의 온실", url: "https://youtu.be/l5ZUUJPDDfs" },
+      { student: "양세빈", book: "변신", url: "https://youtu.be/8BUr-DufhgI" },
+      { student: "이준영", book: "어린왕자", url: "https://www.youtube.com/watch?v=5oETmjFley8" },
+      { student: "문지현", book: "모순(양귀자)", url: "https://www.youtube.com/watch?v=B__i1EZo0t8" },
+      { student: "박주혜", book: "피라네시", url: "https://youtu.be/Wi0ezAGzDWM?si=3qYNisV2Ox0lGe9o" },
+      { student: "신예은", book: "달러구트 꿈 백화점", url: "https://youtu.be/fCgzLlgqWO8" },
+      { student: "이지수", book: "위대한 개츠비", url: "https://www.youtube.com/watch?v=t7wFBtUVDQ4" },
+      { student: "최은서", book: "관계가 상처가 되기 전에", url: "https://www.youtube.com/watch?v=z8BqzHH_ju4" },
+      { student: "김유나", book: "미드나잇 라이브러리", url: "https://youtu.be/nyXnWAMynOs" },
+      { student: "박인애", book: "신곡", url: "" },
+      { student: "이주원", book: "이방인", url: "https://youtu.be/6Uv8yRCE_pw" },
+      { student: "이준수", book: "프랑켄슈타인", url: "https://www.youtube.com/watch?v=J2U7CWSMiUY" },
+      { student: "최호성", book: "호밀밭의 파수꾼", url: "https://youtu.be/zH7DzqQ8PV4?si=uiF7JRQPJdXlWsgl" },
+      { student: "김도현", book: "훔쳐라 아티스트처럼", url: "https://youtu.be/43aIOnmIti8" },
+      { student: "성지연", book: "브람스를 좋아하세요", url: "https://www.youtube.com/watch?v=frNbm8rxuT4" },
+      { student: "심재이", book: "살인자의 기억법", url: "https://www.youtube.com/watch?v=_TZy-bwGPHU" },
+      { student: "이서윤", book: "호밀밭의 파수꾼", url: "https://www.youtube.com/watch?v=E-yJkBjHevo" },
+      { student: "정찬우", book: "1984", url: "https://youtu.be/6W6DJRSFO28" }
+    ];
+
+    function getYouTubeId(url) {
+      if (!url) return null;
+
+      const patterns = [
+        /youtu\.be\/([^?&/]+)/,
+        /youtube\.com\/watch\?v=([^?&/]+)/,
+        /youtube\.com\/embed\/([^?&/]+)/,
+        /youtube\.com\/shorts\/([^?&/]+)/
+      ];
+
+      for (const pattern of patterns) {
+        const match = url.match(pattern);
+        if (match && match[1]) return match[1];
+      }
+
+      return null;
+    }
+
+    function isGoogleSlides(url) {
+      return url && url.includes("docs.google.com/presentation");
+    }
+
+    function makeCaption(student, book) {
+      return `
+        <div class="caption">
+          <span class="student">${student}</span> ·
+          <span class="book">${book}</span>
+        </div>
+      `;
+    }
+
+    function renderItem(item) {
+      const ytId = getYouTubeId(item.url);
+
+      if (ytId) {
+        return `
+          <a class="item" href="${item.url}" target="_blank" rel="noopener noreferrer">
+            <div class="thumb">
+              <img src="https://img.youtube.com/vi/${ytId}/hqdefault.jpg" alt="${item.student} ${item.book} 유튜브 썸네일" />
+            </div>
+            ${makeCaption(item.student, item.book)}
+          </a>
+        `;
+      }
+
+      if (isGoogleSlides(item.url)) {
+        return `
+          <a class="item" href="${item.url}" target="_blank" rel="noopener noreferrer">
+            <div class="thumb">
+              <div class="placeholder">Google Slides</div>
+            </div>
+            ${makeCaption(item.student, item.book)}
+          </a>
+        `;
+      }
+
+      return `
+        <div class="item">
+          <div class="thumb">
+            <div class="placeholder">No Link</div>
+          </div>
+          ${makeCaption(item.student, item.book)}
+        </div>
+      `;
+    }
+
+    document.getElementById("grid").innerHTML = items.map(renderItem).join("");
+  </script>
+</body>
+</html>

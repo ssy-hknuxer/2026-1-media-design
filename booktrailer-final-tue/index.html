@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-1-Book-Trailer-Tuesday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* 기본 배경 및 서체 설정 */
+        body {
+            background-color: #000000;
+            color: #888888; /* 중명도 회색 */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, "Arial Narrow", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 레이아웃 컨테이너 공통 너비 설정 */
+        header, .trailer-grid, footer {
+            max-width: 1400px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        /* 헤더: 타이트한 레이아웃 구현 */
+        header {
+            padding: 30px 20px 10px 20px; /* 상하 여백 축소 */
+            text-align: left;
+        }
+        
+        /* 페이지 제목 스타일 (Arial Narrow 24pt, 중명도 회색, 대소문자 유지) */
+        .page-title {
+            font-family: "Arial Narrow", Arial, Helvetica, sans-serif;
+            font-size: 24pt; /* 24포인트 */
+            font-weight: bold;
+            color: #888888;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* 그리드 레이아웃 (반응형) */
+        .trailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 35px 20px; /* 상하 간격도 타이트하게 유지 */
+            padding: 20px;
+        }
+
+        /* 개별 아이템 스타일 */
+        .trailer-item {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        .trailer-item:hover {
+            opacity: 0.7;
+        }
+
+        /* 썸네일 이미지 박스 (16:9 비율 및 어두운 흑회색 외곽선 설정) */
+        .thumbnail-wrapper {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #1a1a1a;
+            overflow: hidden;
+            margin-bottom: 10px;
+            border-radius: 2px;
+            border: 1px solid #333333; /* 블랙에 가까운 어두운 회색 테두리 */
+            box-sizing: border-box; /* 테두리가 크기에 영향을 주지 않도록 설정 */
+        }
+        .thumbnail-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 학생 및 도서 정보 스타일 (노토산스 12pt, 중명도 회색, 한 줄 표기) */
+        .info {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 12pt; /* 12포인트 */
+            color: #888888;
+            line-height: 1.4;
+            padding: 0 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* 하단 크레딧 스타일 (10pt, 중명도 회색, 왼쪽 정렬) */
+        footer {
+            text-align: left;
+            padding: 40px 20px 60px 20px; /* 푸터 여백 축소 */
+            font-family: "Arial Narrow", Arial, sans-serif;
+            font-size: 10pt;
+            color: #888888;
+            border-top: 1px solid #222;
+            margin-top: 40px;
+        }
+
+        /* 모바일용 대응 */
+        @media (max-width: 600px) {
+            header {
+                padding: 20px 20px 5px 20px;
+            }
+            .page-title {
+                font-size: 20pt;
+            }
+            .trailer-grid {
+                grid-template-columns: 1fr;
+            }
+            .info {
+                white-space: normal; /* 모바일에서는 자동 줄바꿈 전환 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="page-title">2026-1-Book-Trailer-Tuesday</h1>
+    </header>
+
+    <main class="trailer-grid" id="grid">
+    </main>
+
+    <footer>
+        2026 HKNU Design | Media Design | Book Trailer
+    </footer>
+
+    <script>
+        // 화요일 학생 데이터 리스트 (순서 유지)
+        const data = [
+            ["강다영", "노르웨이의 숲", "m9Ph1YStRow"],
+            ["구도윤", "구운몽", "iWBdX8DslT0"],
+            ["마도아", "첫사랑의 침공", "epRYnMeVLZ4"],
+            ["정세윤", "개구리가 되고 싶어", "ruDge8L-BN8"],
+            ["김보민", "동트기 힘든 긴 밤", "9kGpjpijZ4g"],
+            ["이승은25", "소년이 온다", "rCm8yuEcooQ"],
+            ["임가영", "넛지", "QDLKp3tNBAY"],
+            ["임수현", "구의 증명", "N1ypfCvl_Aw"],
+            ["조은서", "꿰맨 눈의 마을", "DNI1OuQ9Qmk"],
+            ["김주호", "악의 꽃", "YSI2tRT3lTs"],
+            ["김지민", "어린왕자", "2JBsndd1hTw"],
+            ["박수정", "동물농장", "Ka1wFbd5qIg"],
+            ["윤수정", "종의 기원", "NZCEfqRnFXE"],
+            ["허윤선", "카지노 Previs", "psX4RROxdsY"],
+            ["김주하", "살인자의 기억법", "VzPPqYEuFHY"],
+            ["박예빈", "아나하라트", "gX7rggG-3_k"],
+            ["윤은비", "이방인", "041VkwLe4Ro"],
+            ["정은희", "달러구트 꿈 백화점", "ABw3_LCX43M"],
+            ["최원준", "채식주의자", "ZUZCCpVoZN8"],
+            ["김민영", "파과 감독코멘터리", "vgeyHfH7rRs"],
+            ["김민영", "파과", "7oLS6i0HBwE"],
+            ["송아림", "미드나잇 라이브러리", "5tA-CPyISQU"],
+            ["정승희", "스노볼 드라이브", "0hVYX_hryZM"],
+            ["차송주", "나무", "3Zgj1IX4r64"],
+            ["황예린", "연금술사(파울로 쿄엘로)", "WkoqXSXk30o"]
+        ];
+
+        const grid = document.getElementById('grid');
+
+        data.forEach(item => {
+            const student = item[0];
+            const book = item[1];
+            const videoId = item[2];
+            const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+            const itemHtml = `
+                <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="trailer-item">
+                    <div class="thumbnail-wrapper">
+                        <img src="${thumbUrl}" alt="${book}">
+                    </div>
+                    <div class="info">
+                        ${student} | ${book}
+                    </div>
+                </a>
+            `;
+            grid.innerHTML += itemHtml;
+        });
+    </script>
+</body>
+</html>
